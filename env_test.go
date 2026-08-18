@@ -74,6 +74,11 @@ func TestEnv(t *testing.T) {
 		}
 	})
 
+	t.Run("bool", func(in *testing.T) {
+		testEnv(in, "TEST_INPUT_BOOL", "true", false, true)
+		testEnv(in, "TEST_INPUT_BOOL", "false", true, false)
+	})
+
 	t.Run("ints", func(in *testing.T) {
 		testEnv(in, "TEST_INPUT_INTS", "1", int(0), int(1))
 		testEnv(in, "TEST_INPUT_INTS", "80", int8(0), int8(80))

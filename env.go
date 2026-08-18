@@ -42,6 +42,8 @@ func Env[T EnvValue](name string, fallback T) T {
 
 	var ret T
 	switch v := any(fallback).(type) {
+	case bool:
+		ret = any(EnvBool(name, v)).(T)
 	case string:
 		ret = any(EnvString(name, v)).(T)
 	case int:
