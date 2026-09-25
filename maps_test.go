@@ -3,8 +3,8 @@ package tools
 import "testing"
 
 func TestTraverseMapString(t *testing.T) {
-	data := map[string]interface{}{
-		"test": map[string]interface{}{
+	data := map[string]any{
+		"test": map[string]any{
 			"one":   "a string",
 			"two":   true,
 			"three": 1337,
@@ -15,7 +15,7 @@ func TestTraverseMapString(t *testing.T) {
 
 	for _, entry := range []struct {
 		path     string
-		expected interface{}
+		expected any
 	}{
 		{"test.one", "a string"},
 		{"test.two", true},

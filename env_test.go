@@ -244,48 +244,48 @@ func TestEnvInt_all(t *testing.T) {
 
 	for _, entry := range []struct {
 		name     string
-		fallback interface{}
-		call     func() interface{}
-		expected interface{}
+		fallback any
+		call     func() any
+		expected any
 	}{
 		{
 			name:     "EnvInt8/ok",
-			call:     func() interface{} { return EnvInt8("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvInt8("TEST_UINT_ENV", 1) },
 			expected: int8(101),
 		},
 		{
 			name:     "EnvInt8/fallback",
-			call:     func() interface{} { return EnvInt8("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvInt8("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: int8(101),
 		},
 		{
 			name:     "EnvInt16",
-			call:     func() interface{} { return EnvInt16("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvInt16("TEST_UINT_ENV", 1) },
 			expected: int16(101),
 		},
 		{
 			name:     "EnvUint16/fallback",
-			call:     func() interface{} { return EnvInt16("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvInt16("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: int16(101),
 		},
 		{
 			name:     "EnvInt32",
-			call:     func() interface{} { return EnvInt32("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvInt32("TEST_UINT_ENV", 1) },
 			expected: int32(101),
 		},
 		{
 			name:     "EnvInt32/fallback",
-			call:     func() interface{} { return EnvInt32("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvInt32("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: int32(101),
 		},
 		{
 			name:     "EnvInt",
-			call:     func() interface{} { return EnvInt("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvInt("TEST_UINT_ENV", 1) },
 			expected: int(101),
 		},
 		{
 			name:     "EnvInt/fallback",
-			call:     func() interface{} { return EnvInt("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvInt("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: 101,
 		},
 	} {
@@ -382,48 +382,48 @@ func TestEnvUint_all(t *testing.T) {
 
 	for _, entry := range []struct {
 		name     string
-		fallback interface{}
-		call     func() interface{}
-		expected interface{}
+		fallback any
+		call     func() any
+		expected any
 	}{
 		{
 			name:     "EnvUint8/ok",
-			call:     func() interface{} { return EnvUint8("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvUint8("TEST_UINT_ENV", 1) },
 			expected: uint8(101),
 		},
 		{
 			name:     "EnvUint8/fallback",
-			call:     func() interface{} { return EnvUint8("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvUint8("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: uint8(101),
 		},
 		{
 			name:     "EnvUint16",
-			call:     func() interface{} { return EnvUint16("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvUint16("TEST_UINT_ENV", 1) },
 			expected: uint16(101),
 		},
 		{
 			name:     "EnvUint16/fallback",
-			call:     func() interface{} { return EnvUint16("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvUint16("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: uint16(101),
 		},
 		{
 			name:     "EnvUint32",
-			call:     func() interface{} { return EnvUint32("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvUint32("TEST_UINT_ENV", 1) },
 			expected: uint32(101),
 		},
 		{
 			name:     "EnvUint32/fallback",
-			call:     func() interface{} { return EnvUint32("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvUint32("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: uint32(101),
 		},
 		{
 			name:     "EnvUint",
-			call:     func() interface{} { return EnvUint("TEST_UINT_ENV", 1) },
+			call:     func() any { return EnvUint("TEST_UINT_ENV", 1) },
 			expected: uint(101),
 		},
 		{
 			name:     "EnvUint/fallback",
-			call:     func() interface{} { return EnvUint("TEST_UINT_FALLBACK_ENV", 101) },
+			call:     func() any { return EnvUint("TEST_UINT_FALLBACK_ENV", 101) },
 			expected: uint(101),
 		},
 	} {

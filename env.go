@@ -126,8 +126,8 @@ func EnvStringMap(name string, fallback map[string]string) map[string]string {
 	}
 
 	out := make(map[string]string)
-	values := strings.Split(result, ",") // X-TEST=ME, HOST=test.fqdn, etc=val
-	for _, value := range values {
+	values := strings.SplitSeq(result, ",") // X-TEST=ME, HOST=test.fqdn, etc=val
+	for value := range values {
 		pair := strings.SplitN(strings.Trim(value, "\r\n "), "=", 2)
 		if len(pair) < 2 {
 			//: not applicable, skipping silently

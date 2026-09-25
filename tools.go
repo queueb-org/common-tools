@@ -33,7 +33,7 @@ func Pick[T comparable](args ...T) T {
 // in python {} or True gives True:
 //
 //	Or(0, true) -> true
-func Or(parts ...interface{}) interface{} {
+func Or(parts ...any) any {
 	if len(parts) == 0 {
 		return nil
 	}
@@ -53,7 +53,7 @@ func Or(parts ...interface{}) interface{} {
 // in python: ["test"] and True or {} gives {}:
 //
 //	And([]string{"test}, true, map[string]string{}) -> map[string]string{}
-func And(parts ...interface{}) interface{} {
+func And(parts ...any) any {
 	if len(parts) == 0 {
 		return nil
 	}
@@ -67,7 +67,7 @@ func And(parts ...interface{}) interface{} {
 	return parts[len(parts)-1]
 }
 
-func isEmpty(entry interface{}) bool {
+func isEmpty(entry any) bool {
 	//: on nil explicit true (i.e. blank)
 	if entry == nil {
 		return true
@@ -110,12 +110,12 @@ func isEmpty(entry interface{}) bool {
 	}
 }
 
-func isComplexObjEmpty(entry interface{}) bool {
+func isComplexObjEmpty(entry any) bool {
 	fieldType := reflect.TypeOf(entry)
 	field := reflect.ValueOf(entry)
 
 	switch fieldType.Kind() {
-	case reflect.Ptr:
+	case reflect.Pointer:
 		if field.Elem().Kind() == reflect.Struct {
 			if i, ok := field.Interface().(IsEmptier); ok {
 				return i.IsEmpty()
